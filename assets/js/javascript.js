@@ -1,5 +1,5 @@
 //testing getting the input from a text box and using the values inside
-var mainDeck = [], credits, revealed = [], count, bet = 0, maxBet, highRoller, showRule = false;
+var mainDeck = [], credits, revealed = [], count, bet = 0, maxBet, minBet, highRoller, showRule = false;
 var playerHealth, friendHealth, winRound;
 var foodCost1,foodCost2,foodCost3,foodItem1,foodItem2,foodItem3;
 var foodPurchase1,foodPurchase2,foodPurchase3,foodPurchase4,foodPurchase5,foodPurchase6;
@@ -20,15 +20,19 @@ function betHigh(){
         return;
     }
     else if (bet > maxBet && highRoller==false) {
-        alert("FRIEND: The max bet at the MAIN CASINO LOUNGE is "+maxBet+" credits! If you want to bet more credits then we'll need to make it to the High Rollers Lounge! :)");
+        alert("FRIEND: The max bet inside the MAIN CASINO LOUNGE is "+maxBet+" credits! If you want to bet more credits then we'll need to make it to the High Rollers Lounge! :)");
         return;
     }
     else if (bet > maxBet && highRoller==true) {
-        alert("FRIEND: The max bet at the HIGH ROLLERS LOUNGE is "+maxBet+" credits! Don't be too greedy :)");
+        alert("FRIEND: The max bet inside the HIGH ROLLERS LOUNGE is "+maxBet+" credits! Don't be too greedy :)");
         return;
     }
-    else if (bet < 1) {
-        alert("FRIEND: We must bet at least 1 credit! But don't just bet 1 credit.. We might never get to leave.. :(");
+    else if (bet < minBet && highRoller==false) {
+        alert("FRIEND: The minimum bet inside the MAIN CASINO LOUNGE is "+minBet+" credits!");
+        return;
+    }
+    else if (bet < minBet && highRoller==true) {
+        alert("FRIEND: The minimum bet inside the HIGH ROLLERS LOUNGE is " + minBet + " credits! There is no easy way out here!");
         return;
     }
     else if (isNaN(bet)){
@@ -62,6 +66,7 @@ function betHigh(){
     checkPlayerHealth();
     checkFriendHealth();
     checkReshuffle();
+    document.getElementById("bet").select();
 }
 
 function betLow(){
@@ -74,15 +79,19 @@ function betLow(){
         return;
     }
     else if (bet > maxBet && highRoller==false) {
-        alert("FRIEND: The max bet at the MAIN CASINO LOUNGE is "+maxBet+" credits! If you want to bet more credits then we'll need to make it to the High Rollers Lounge! :)");
+        alert("FRIEND: The max bet inside the MAIN CASINO LOUNGE is "+maxBet+" credits! If you want to bet more credits then we'll need to make it to the High Rollers Lounge! :)");
         return;
     }
     else if (bet > maxBet && highRoller==true) {
-        alert("FRIEND: The max bet at the HIGH ROLLERS LOUNGE is " + maxBet + " credits! Don't be too greedy :)");
+        alert("FRIEND: The max bet inside the HIGH ROLLERS LOUNGE is " + maxBet + " credits! Don't be too greedy :)");
         return;
     }
-    else if (bet < 1) {
-        alert("FRIEND: We must bet at least 1 credit! But don't just bet 1 credit.. We might never get to leave.. :(");
+    else if (bet < minBet && highRoller==false) {
+        alert("FRIEND: The minimum bet inside the MAIN CASINO LOUNGE is "+minBet+" credits!");
+        return;
+    }
+    else if (bet < minBet && highRoller==true) {
+        alert("FRIEND: The minimum bet inside the HIGH ROLLERS LOUNGE is " + minBet + " credits! There is no easy way out here!");
         return;
     }
     else if (isNaN(bet)){
@@ -116,6 +125,7 @@ function betLow(){
     checkPlayerHealth();
     checkFriendHealth();
     checkReshuffle();
+    document.getElementById("bet").select();
 }
 
 function loseHealth(){
@@ -159,7 +169,8 @@ function highRollers() {
                     " back to staring at the room in awe. You move closer to the dealer's table. There's " +
                     "no turning back now.)\n\nFRIEND: This is it! Good luck, old friend!");
                 maxBet = 25000;
-                document.getElementById("story").innerHTML = "<b>Current Location:</b> HIGH ROLLERS LOUNGE<br><b>Max bet: </b>" + maxBet;
+                minBet = 2500;
+                document.getElementById("story").innerHTML = "<b>Current Location:</b> HIGH ROLLERS LOUNGE<br><b>Max bet: </b>" + maxBet + "</br><b>Min bet: </b>" + minBet;
                 highRoller = true;
                 //replace food menu
                 foodCost1 = 2000; foodCost2=4000; foodCost3=6000;
@@ -170,6 +181,8 @@ function highRollers() {
                 document.getElementById("food1").innerHTML = foodItem1;
                 document.getElementById("food2").innerHTML = foodItem2;
                 document.getElementById("food3").innerHTML = foodItem3;
+                document.getElementsByTagName("body")[0].setAttribute("style","background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet)");
+                reshuffleDeck();
             }
         }
         else {
@@ -189,6 +202,14 @@ function checkReshuffle(){
         document.getElementById("usedNumbers").innerHTML = "";
         revealNumber();
     }
+}
+
+function reshuffleDeck(){
+    mainDeck = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13];
+    count=0;
+    revealed = [];
+    document.getElementById("usedNumbers").innerHTML = "";
+    revealNumber();
 }
 
 function checkLose() {
@@ -380,6 +401,7 @@ function rules() {
     if (showRule==false){
         showRule = true;
         document.getElementById("rulesButton").innerHTML = "Hide Rules";
+        document.getElementById("rules").setAttribute("style","background-color: white");
         document.getElementById("rules").innerHTML = "<b>RULES:</b> Dealer will deal numbers one at a time from a deck of 26 numbers. The deck consists of numbers from 1-13, each number appearing twice." +
             "<br><br>Once the dealer has dealt a number, you have to place a bet and decide whether the number you'll draw is higher or lower than his number." +
             "<br><br>Enter amount of credits to bet, and click on 'Bet HIGH' or 'Bet LOW' to reveal the number you have drawn." +
@@ -400,6 +422,7 @@ function rules() {
         showRule = false;
         document.getElementById("rules").innerHTML = "";
         document.getElementById("rulesButton").innerHTML = "How to Play";
+        document.getElementById("rules").removeAttribute("style");
     }
 
 }
@@ -413,6 +436,7 @@ function restartGame() {
     credits = 500;
     revealed = [];
     count=0;
+    minBet=250;
     maxBet=2500;
     playerHealth = 6;
     friendHealth = 5;
@@ -428,7 +452,7 @@ function restartGame() {
     document.getElementById("start").innerHTML = "Restart";
     document.getElementById("userCredits").innerHTML = credits;
     document.getElementById("usedNumbers").innerHTML = "";
-    document.getElementById("story").innerHTML = "<b>Current Location:</b> Main Casino Lounge<br><b>Max bet: </b>" + maxBet;
+    document.getElementById("story").innerHTML = "<b>Current Location:</b> Main Casino Lounge<br><b>Max bet: </b>" + maxBet + "</br><b>Min bet: </b>" + minBet + "<br><br><button onclick=\"highRollers()\" id=\"highRollers\">Go to High Rollers Lounge</button>";
     document.getElementById("playerHealth").innerHTML = playerHealth;
     document.getElementById("friendHealth").innerHTML = friendHealth;
     document.getElementById("winner").innerHTML = "";
@@ -439,5 +463,8 @@ function restartGame() {
     document.getElementById("escargot").innerHTML = "";
     document.getElementById("steak").innerHTML = "";
     document.getElementById("sushi").innerHTML = "";
+    document.getElementsByTagName("body")[0].removeAttribute("style");
+    document.getElementById("bet").focus();
+
     revealNumber();
 }
