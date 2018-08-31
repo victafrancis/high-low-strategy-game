@@ -1,5 +1,5 @@
 //testing getting the input from a text box and using the values inside
-var mainDeck = [], credits, revealed = [], count, bet = 0, maxBet, minBet, highRoller, showRule = false;
+var mainDeck = [], credits, revealed = [], count, bet = 0, maxBet, minBet, highRoller;
 var playerHealth, friendHealth, winRound;
 var foodCost1,foodCost2,foodCost3,foodItem1,foodItem2,foodItem3;
 var foodPurchase1,foodPurchase2,foodPurchase3,foodPurchase4,foodPurchase5,foodPurchase6;
@@ -397,36 +397,6 @@ function buyFood3Friend() {
     }
 }
 
-function rules() {
-    if (showRule==false){
-        showRule = true;
-        document.getElementById("rulesButton").innerHTML = "Hide Rules";
-        document.getElementById("rules").setAttribute("style","background-color: white");
-        document.getElementById("rules").innerHTML = "<b>RULES:</b> Dealer will deal numbers one at a time from a deck of 26 numbers. The deck consists of numbers from 1-13, each number appearing twice." +
-            "<br><br>Once the dealer has dealt a number, you have to place a bet and decide whether the number you'll draw is higher or lower than his number." +
-            "<br><br>Enter amount of credits to bet, and click on 'Bet HIGH' or 'Bet LOW' to reveal the number you have drawn." +
-            "<br><br>If you bet correctly, then you double your money. If you bet wrong, you lose. If you draw the same number as the dealer, you lose because the house always wins." +
-            "<br><br>Note that each number only appears twice in the deck, so once you or the dealer has drawn a card, the deck also gets smaller. You can use " +
-            "this to your advantage." +
-            "<br><br><b>DECK INCLUDES:</b> 1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13" +
-            "<br><br><b>HEALTH:</b> In addition to making money, you'll have to watch after you and your friend's health. Once you or your friend's health reaches 0, you lose." +
-            "<br><br>Every bet makes you lose 1 Health each (because you and your friend gets hungry). If you lose a bet, you lose 2 Health each because of the added stress." +
-            "<br><br><b>HIGH ROLLERS LOUNGE:</b> Once you have enough credits, you can enter the High Rollers Lounge and bet more money, giving you the ability to reach 100,000 credits faster." +
-            "<br><br>Just be warned, once you enter, everything else gets more expensive. And there is no turning back! " +
-            "<br><br><b>YOU LOSE IF:</b>" +
-            "<br> 1) You run out of credits" +
-            "<br> 2) You or your friend runs out of Health" +
-            "<br><br><b>YOU WIN IF:</b> You get 100,000 credits!"
-    }
-    else if (showRule==true){
-        showRule = false;
-        document.getElementById("rules").innerHTML = "";
-        document.getElementById("rulesButton").innerHTML = "How to Play";
-        document.getElementById("rules").removeAttribute("style");
-    }
-
-}
-
 function restartGame() {
     var answer = window.confirm("FRIEND: Start a new game?");
     if(answer==false){
@@ -452,7 +422,7 @@ function restartGame() {
     document.getElementById("start").innerHTML = "Restart";
     document.getElementById("userCredits").innerHTML = credits;
     document.getElementById("usedNumbers").innerHTML = "";
-    document.getElementById("story").innerHTML = "<b>Current Location:</b> Main Casino Lounge<br><b>Max bet: </b>" + maxBet + "</br><b>Min bet: </b>" + minBet + "<br><br><button onclick=\"highRollers()\" id=\"highRollers\">Go to High Rollers Lounge</button>";
+    document.getElementById("story").innerHTML = "<b>Current Location:</b> Main Lounge<br><b>Max bet: </b>" + maxBet + "</br><b>Min bet: </b>" + minBet + "<br><br><button onclick=\"highRollers()\" id=\"highRollers\">Go to High Rollers Lounge</button>";
     document.getElementById("playerHealth").innerHTML = playerHealth;
     document.getElementById("friendHealth").innerHTML = friendHealth;
     document.getElementById("winner").innerHTML = "";

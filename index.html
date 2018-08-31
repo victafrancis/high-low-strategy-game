@@ -2,70 +2,62 @@
 <p lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="Francis Victa">
+    <meta name="description" content="A short high-low probability game, created for fun.">
     <title>High-Low Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <style>
         div#story {
             background-color: lightgrey;
-            width: 500px;
-            border: 1px solid;
             padding: 25px;
-            margin: 25px;
         }
         div#casino {
             background-color: lavender;
-            width: max-content;
-            border: 1px solid;
             padding: 25px;
-            margin: 25px;
         }
         div#health {
             background-color: lightblue;
-            width: max-content;
-            border: 1px solid;
             padding: 25px;
-            margin: 25px;
-            float: left;
-            display: inline-block;
         }
         div#foodOptions {
             background-color: lightsalmon;
-            width: max-content;
-            border: 1px solid;
             padding: 25px;
-            margin: 25px;
-            display: inline-block;
         }
-        div#main {
-            width: max-content;
-            float: left;
-            display: inline-block;
-        }
+        /*div#main {*/
+            /*width: max-content;*/
+            /*display: inline-block;*/
+        /*}*/
         div#rules {
             padding: 25px;
-            width: 400px;
-            display: inline-block;
-            float: left;
         }
         div#bonus{
-            display: inline-block;
             padding: 25px;
-            float: left;
         }
+        .footer {
+            background-color: lightgray;
+            text-align: center;
+            padding: 8px;
+        }
+
     </style>
 </head>
 
 
 <body>
 
-<div id = "main">
-    <p>
-    <h2>Welcome to Golden Saucer Island!</h2>
-    <p>
-        <button onclick="restartGame()" id="start">Start Game</button>
-        <button onclick="rules()" id="rulesButton">How to Play</button>
-    </p>
+<div class="jumbotron">
+    <div id = "main" class="container">
+        <h1>Welcome to Golden Saucer Island!</h1>
+        <p>
+            <button onclick="restartGame()" id="start" class="btn btn-primary">Start Game</button>
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#rulesModal">
+                How to Play</button>
+        </p>
+    </div>
+</div>
 
-    <div id="story"><b><u>THE STORY</u></b>
+
+    <div id="story" class="container"><b><u>THE STORY</u></b>
         <p>You and your best friend went on an expensive trip to Golden Saucer Island, which is currently the most popular and exciting tourist destination.
         While walking along a huge pyramid-like structure made of diamonds, you and your friend decided to stop for a short break.</p>
         <p>Unfortunately, you were so distracted by the sights that a thief had stolen all your belongings! There was no trace of him whatsoever.
@@ -76,7 +68,7 @@
         <b>Click "How to Play" for the rules!</b>
     </div>
 
-    <div id="casino">
+    <div id="casino" class="container">
         <p id="showNumber"></p>
         <p>Credits: <b id="userCredits"></b></p>
 
@@ -89,13 +81,13 @@
         <p id="usedNumbers"></p>
     </div>
 
-    <div id="health">
+    <div id="health" class="container">
         <img src="assets/images/health.jpg" alt="" style="width:20px;height:20px"><u>HEALTH (max 10)</u><br>
         Player: <b id="playerHealth"></b><br>
         Friend: <b id="friendHealth"></b>
     </div>
 
-    <div id="foodOptions">
+    <div id="foodOptions" class="container">
         <u>OVERPRICED FOOD MENU</u><br><br>
         <b id="food1"></b><br>
         <button onclick="buyFood1Player()">Buy for yourself!</button><br>
@@ -107,22 +99,64 @@
         <button onclick="buyFood3Player()">Buy for yourself!</button><br>
         <button onclick="buyFood3Friend()">Buy for friend!</button><br><br>
     </div>
+
+<div id="bonus" class="container">
+    <u>COLLECTIBLES</u><br>
+    <span id="winner"></span>
+    <span id="highroller"></span>
+    <span id="sushi"></span>
+    <span id="steak"></span>
+    <span id="escargot"></span>
+    <span id="tempura"></span>
+    <span id="cheeseburger"></span>
+    <span id="takoyaki"></span>
 </div>
 
-<div id="bonus">
+<div id="rules" class="container"></div>
 
-    <p id="winner"></p>
-    <p id="highroller"></p>
-    <p id="sushi"></p>
-    <p id="steak"></p>
-    <p id="escargot"></p>
-    <p id="tempura"></p>
-    <p id="cheeseburger"></p>
-    <p id="takoyaki"></p>
+<div class="footer">
+    <span>Francis Victa 2018</span>
 </div>
 
-<div id="rules"></div>
+
+<!-- Modal -->
+<div class="modal fade" id="rulesModal" tabindex="-1" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-title">RULES</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Dealer will deal numbers one at a time from a deck of 26 numbers. The deck consists of numbers from 1-13, each number appearing twice.
+                <br><br>Once the dealer has dealt a number, you have to place a bet and decide whether the number you'll draw is higher or lower than his number.
+                <br><br>Enter amount of credits to bet, and click on 'Bet HIGH' or 'Bet LOW' to reveal the number you have drawn.
+                <br><br>If you bet correctly, then you double your money. If you bet wrong, you lose. If you draw the same number as the dealer, you lose because the house always wins.
+                <br><br>Note that each number only appears twice in the deck, so once you or the dealer has drawn a card, the deck also gets smaller. You can use
+                this to your advantage.
+                <br><br><b>DECK INCLUDES:</b> 1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13
+                <br><br><b>HEALTH:</b> In addition to making money, you'll have to watch after you and your friend's health. Once you or your friend's health reaches 0, you lose.
+                <br><br>Every bet makes you lose 1 Health each (because you and your friend gets hungry). If you lose a bet, you lose 2 Health each because of the added stress.
+                <br><br><b>HIGH ROLLERS LOUNGE:</b> Once you have enough credits, you can enter the High Rollers Lounge and bet more money, giving you the ability to reach 100,000 credits faster.
+                <br><br>Just be warned, once you enter, everything else gets more expensive. And there is no turning back!
+                <br><br><b>YOU LOSE IF:</b>
+                <br> 1) You run out of credits
+                <br> 2) You or your friend runs out of Health
+                <br><br><b>YOU WIN IF:</b> You get 100,000 credits!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <script src="assets/js/javascript.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
