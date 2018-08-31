@@ -142,14 +142,20 @@ function loseHealth(){
 }
 
 function checkPlayerHealth(){
-    if (playerHealth<1){
+    if (playerHealth<3) {
+        alert("Your health is low. Buy some food to prevent yourself from fainting!")
+    }
+    else if (playerHealth<1){
         alert("FRIEND: Oh no! You've ran out of health and fainted! It's game over!\n\nDon't forget to watch your health! Let's just try it again!");
         restartGame();
     }
 }
 
 function checkFriendHealth(){
-    if (friendHealth<1){
+    if (friendHealth<3) {
+        alert("Your friend's health is low. Buy some food to prevent your friend from fainting!")
+    }
+    else if (friendHealth<1){
         alert("(Your best friend fainted! Don't forget to feed your friend next time!!)\n\nLet's just try it again!");
         restartGame();
     }
@@ -157,7 +163,7 @@ function checkFriendHealth(){
 
 function highRollers() {
     if(highRoller == false) {
-        if (credits > 10000) {
+        if (credits >= 10000) {
             var answer = window.confirm("FRIEND: Wow!! We have enough credits to enter the High Rollers Lounge! " +
                 "\n\nJust remember: once we enter, we can't go back to the Main Lounge. Also, food here will be more expensive! :)" +
                 "\n\nEnter now?");
