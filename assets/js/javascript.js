@@ -142,22 +142,22 @@ function loseHealth(){
 }
 
 function checkPlayerHealth(){
-    if (playerHealth<3) {
-        alert("Your health is low. Buy some food to prevent yourself from fainting!")
-    }
-    else if (playerHealth<1){
+    if (playerHealth<1){
         alert("FRIEND: Oh no! You've ran out of health and fainted! It's game over!\n\nDon't forget to watch your health! Let's just try it again!");
         restartGame();
+    }
+    else if (playerHealth<3) {
+        alert("Your health is low. Buy some food to prevent yourself from fainting!")
     }
 }
 
 function checkFriendHealth(){
-    if (friendHealth<3) {
-        alert("Your friend's health is low. Buy some food to prevent your friend from fainting!")
-    }
-    else if (friendHealth<1){
+    if (friendHealth<1){
         alert("(Your best friend fainted! Don't forget to feed your friend next time!!)\n\nLet's just try it again!");
         restartGame();
+    }
+    else if (friendHealth<3) {
+        alert("Your friend's health is low. Buy some food to prevent your friend from fainting!")
     }
 }
 
