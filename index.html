@@ -12,6 +12,10 @@
             background-color: lightgrey;
             padding: 25px;
         }
+        div#easyMode {
+            background-color: gold;
+            padding: 25px;
+        }
         div#casino {
             background-color: lavender;
             padding: 25px;
@@ -39,6 +43,12 @@
             text-align: center;
             padding: 8px;
         }
+        button{
+            margin: 2px;
+        }
+        .jumbotron{
+            padding-bottom: 2rem;
+        }
 
     </style>
 </head>
@@ -50,9 +60,10 @@
     <div id = "main" class="container">
         <h1>Welcome to Golden Saucer Island!</h1>
         <p>
-            <button onclick="restartGame()" id="start" class="btn btn-primary">Start Game</button>
+            <button onclick="restartGame()" id="start" class="btn btn-primary btn-lg">Start Game</button><br>
             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#rulesModal">
-                How to Play</button>
+                How to Play</button><br>
+            <button type="button" class="btn btn-secondary" onclick="easyModeButton() ">Noob Mode</button>
         </p>
     </div>
 </div>
@@ -67,6 +78,11 @@
         <p><b>TO WIN: </b>Earn 100,000 Credits from the Casino to buy your way back!</p>
         <b>Click "Start Game" to start!</b><br>
         <b>Click "How to Play" for the rules!</b>
+    </div>
+
+    <div id="easyMode" class="container">
+        <b><u>NOOB MODE</u></b>
+        <p id="easyProb"></p>
     </div>
 
     <div id="casino" class="container">
@@ -156,6 +172,7 @@
 
 
 <script src="assets/js/javascript.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
