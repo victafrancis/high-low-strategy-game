@@ -442,6 +442,12 @@ function buyFood3Friend() {
 function easyModeButton(){
     $(function() {
         $("#easyMode").toggle();
+        var x = document.getElementById("noobBtn").getAttribute("style");
+        if(x == null || x == undefined){
+            $("#noobBtn").attr("style","color:limegreen")
+        } else {
+            $("#noobBtn").removeAttr("style");
+        }
     });
 }
 
