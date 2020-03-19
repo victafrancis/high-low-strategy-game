@@ -7,58 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>High-Low Game</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <style>
-        div#story {
-            background-color: lightgrey;
-            padding: 25px;
-        }
-        div#casino {
-            background-color: lavender;
-            padding: 25px;
-        }
-        div#health {
-            background-color: lightblue;
-            padding: 25px;
-        }
-        div#foodOptions {
-            background-color: lightsalmon;
-            padding: 25px;
-        }
-        /*div#main {*/
-            /*width: max-content;*/
-            /*display: inline-block;*/
-        /*}*/
-        div#rules {
-            padding: 25px;
-        }
-        div#bonus{
-            padding: 25px;
-        }
-        .footer {
-            background-color: lightgray;
-            text-align: center;
-            padding: 8px;
-        }
-
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 
 <body>
 
-<div class="jumbotron">
-    <div id = "main" class="container">
+<div>
+    <div id = "main" class="jumbotron container">
         <h1>Welcome to Golden Saucer Island!</h1>
         <p>
-            <button onclick="restartGame()" id="start" class="btn btn-primary">Start Game</button>
+            <button onclick="restartGame()" id="start" class="btn btn-primary btn-lg">Start Game</button><br>
             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#rulesModal">
-                How to Play</button>
+                How to Play</button><br>
+            <button type="button" class="btn btn-secondary" onclick="easyModeButton()" id="noobBtn">Noob Mode</button>
         </p>
     </div>
 </div>
 
-
-    <div id="story" class="container"><b><u>THE STORY</u></b>
+<div class="container row">
+    <div id="story" class="container rounded col-lg-12 col-md-12"><b><u>THE STORY</u></b>
         <p>You and your best friend went on an expensive trip to Golden Saucer Island, which is currently the most popular and exciting tourist destination.
         While walking along a huge pyramid-like structure made of diamonds, you and your friend decided to stop for a short break.</p>
         <p>Unfortunately, you were so distracted by the sights that a thief had stolen all your belongings! There was no trace of him whatsoever.
@@ -67,6 +35,11 @@
         <p><b>TO WIN: </b>Earn 100,000 Credits from the Casino to buy your way back!</p>
         <b>Click "Start Game" to start!</b><br>
         <b>Click "How to Play" for the rules!</b>
+    </div>
+
+    <div id="easyMode" class="container rounded col-lg-6 col-md-6">
+        <b><u>NOOB MODE</u></b>
+        <p id="easyProb"></p>
     </div>
 
     <div id="casino" class="container">
@@ -100,6 +73,7 @@
         <button onclick="buyFood3Player()">Buy for yourself!</button><br>
         <button onclick="buyFood3Friend()">Buy for friend!</button><br><br>
     </div>
+</div>
 
 <div id="bonus" class="container">
     <u>COLLECTIBLES</u><br>
@@ -156,6 +130,7 @@
 
 
 <script src="assets/js/javascript.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

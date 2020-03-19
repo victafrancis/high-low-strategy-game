@@ -3,11 +3,47 @@ var mainDeck = [], credits, revealed = [], count, bet = 0, maxBet, minBet, highR
 var playerHealth, friendHealth, winRound;
 var foodCost1,foodCost2,foodCost3,foodItem1,foodItem2,foodItem3;
 var foodPurchase1,foodPurchase2,foodPurchase3,foodPurchase4,foodPurchase5,foodPurchase6;
+var currentNum, lowerRangeCount, highRangeCount, sameNumCount, lowPercent, highPercent, samePercent;
+
+window.onload = function(){ //hide easy mode section first until toggled on
+    $(function() {
+        $("#easyMode").hide();
+    });
+};
 
 function revealNumber() {
     revealed[count] = mainDeck.splice(Math.floor(Math.random() * mainDeck.length), 1);
     document.getElementById("showNumber").innerHTML = "Dealer's number: <b>" + revealed[count] + "</b></br> Do you want to bet HIGH or LOW?";
     count++;
+
+    //calculating probabilities for easy mode
+    currentNum = revealed[count-1];
+    for(var i = 0; i<mainDeck.length; i++){
+        if(mainDeck[i]>=currentNum){
+            lowerRangeCount = i;
+            if(currentNum==mainDeck[i]){
+                sameNumCount = 1;
+                highRangeCount = mainDeck.length - (lowerRangeCount + sameNumCount);
+                break;
+            } else {
+                sameNumCount = 0;
+                highRangeCount = mainDeck.length - lowerRangeCount;
+                break;
+            }
+        } else if (i+1==mainDeck.length){
+            lowerRangeCount = i + 1;
+            sameNumCount = 0;
+            highRangeCount = 0;
+        }
+    }
+    lowPercent = (lowerRangeCount / mainDeck.length)*100;
+    highPercent = (highRangeCount / mainDeck.length)*100;
+    samePercent =  (sameNumCount / mainDeck.length)*100;
+
+    $(function(){
+        $("#easyProb").html("Chance of win:<br>High:\t<b>"+highPercent.toFixed(1)+"%</b><br>Low:\t<b>"+lowPercent.toFixed(1)+"%</b><br>Same Number:\t<b>" +
+            samePercent.toFixed(1)+"%</b>");
+    })
 }
 
 function betHigh(){
@@ -401,6 +437,20 @@ function buyFood3Friend() {
     else{
         document.getElementById("sushi").innerHTML = "<img src=\"assets/images/sushi.jpg\" style=\"width:300px;height=300px\">";
     }
+}
+
+function easyModeButton(){
+    $(function() {
+        $("#easyMode").toggle();
+        var x = document.getElementById("noobBtn").getAttribute("style");
+        if(x == null || x == undefined){
+            $("#noobBtn").attr("style","color:limegreen")
+            $("#story").attr("class","container rounded col-lg-6 col-md-6")
+        } else {
+            $("#noobBtn").removeAttr("style");
+            $("#story").attr("class","container rounded col-lg-12 col-md-12")
+        }
+    });
 }
 
 function restartGame() {

@@ -1,0 +1,62 @@
+div#story {
+    background-color: lightgrey;
+    padding: 25px;
+}
+div#easyMode {
+    background-color: #C99B50;
+    padding: 25px;
+}
+div#casino {
+    background-color: lavender;
+    padding: 25px;
+}
+div#health {
+    background-color: lightblue;
+    padding: 25px;
+}
+div#foodOptions {
+    background-color: lightsalmon;
+    padding: 25px;
+}
+/*div#main {*/
+    /*width: max-content;*/
+    /*display: inline-block;*/
+/*}*/
+div#rules {
+    padding: 25px;
+}
+div#bonus{
+    padding: 25px;
+}
+.footer {
+    background-color: lightgray;
+    text-align: center;
+    padding: 8px;
+}
+button{
+    margin: 2px;
+}
+.jumbotron{
+    padding-bottom: 2rem;
+}
+.noobGreen{
+    color: limegreen;
+}
+
+body {
+    background-image: url('../images/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+.jumbotron{
+    background-color: #C99B50;
+    opacity: .9;
+}
+.row{
+    margin-right: auto;
+    margin-left: auto;
+}
+.rounded {
+    border-radius:.25rem
+}
