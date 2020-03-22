@@ -62,3 +62,7 @@ body {
 .rounded {
     border-radius:.25rem
 }
+
+.modal {
+    color: #313131;
+ }
