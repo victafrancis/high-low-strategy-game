@@ -223,7 +223,7 @@ function highRollers() {
                 document.getElementById("food1").innerHTML = foodItem1;
                 document.getElementById("food2").innerHTML = foodItem2;
                 document.getElementById("food3").innerHTML = foodItem3;
-                document.getElementsByTagName("body")[0].setAttribute("style","background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet)");
+                document.getElementsByTagName("body")[0].setAttribute("style","background-image: url('https://raw.githubusercontent.com/victafrancis/high-low-strategy-game/master/assets/images/background.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;");
                 reshuffleDeck();
             }
         }
@@ -445,10 +445,10 @@ function easyModeButton(){
         var x = document.getElementById("noobBtn").getAttribute("style");
         if(x == null || x == undefined){
             $("#noobBtn").attr("style","color:limegreen")
-            $("#story").attr("class","container rounded col-lg-6 col-md-6")
+            // $("#story").attr("class","container rounded col-lg-6 col-md-6")
         } else {
             $("#noobBtn").removeAttr("style");
-            $("#story").attr("class","container rounded col-lg-12 col-md-12")
+            // $("#story").attr("class","container rounded col-lg-12 col-md-12")
         }
     });
 }
@@ -478,7 +478,7 @@ function restartGame() {
     document.getElementById("start").innerHTML = "Restart";
     document.getElementById("userCredits").innerHTML = credits;
     document.getElementById("usedNumbers").innerHTML = "";
-    document.getElementById("story").innerHTML = "<b>Current Location:</b> Main Lounge<br><b>Max bet: </b>" + maxBet + "</br><b>Min bet: </b>" + minBet + "<br><br><button onclick=\"highRollers()\" id=\"highRollers\">Go to High Rollers Lounge</button>";
+    document.getElementById("story").innerHTML = "<b>Current Location:</b> Main Lounge<br><b>Max bet: </b>" + maxBet + "</br><b>Min bet: </b>" + minBet + "<br><br><button class='btn btn-secondary' onclick=\"highRollers()\" id=\"highRollers\">Go to High Rollers Lounge</button>";
     document.getElementById("playerHealth").innerHTML = playerHealth;
     document.getElementById("friendHealth").innerHTML = friendHealth;
     document.getElementById("winner").innerHTML = "";

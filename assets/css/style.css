@@ -1,5 +1,5 @@
 div#story {
-    background-color: lightgrey;
+    background-color:#313131;
     padding: 25px;
 }
 div#easyMode {
@@ -7,15 +7,15 @@ div#easyMode {
     padding: 25px;
 }
 div#casino {
-    background-color: lavender;
+    background-color: #313131;
     padding: 25px;
 }
 div#health {
-    background-color: lightblue;
+    background-color: #313131;
     padding: 25px;
 }
 div#foodOptions {
-    background-color: lightsalmon;
+    background-color: #313131;
     padding: 25px;
 }
 /*div#main {*/
@@ -44,13 +44,15 @@ button{
 }
 
 body {
-    background-image: url('../images/background.jpg');
+    /* background-image: url('../images/background.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 100% 100%;
+    background-size: 100% 100%; */
+    color: silver;
+    background: black;
 }
 .jumbotron{
-    background-color: #C99B50;
+    background-color:#313131;
     opacity: .9;
 }
 .row{

@@ -14,65 +14,73 @@
 <body>
 
 <div>
-    <div id = "main" class="jumbotron container">
+    <div id = "main" class="jumbotron container border border-warning">
         <h1>Welcome to Golden Saucer Island!</h1>
         <p>
-            <button onclick="restartGame()" id="start" class="btn btn-primary btn-lg">Start Game</button><br>
-            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#rulesModal">
+            <button onclick="restartGame()" id="start" class="btn btn-warning btn-lg">Start Game</button><br>
+            <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#rulesModal">
                 How to Play</button><br>
-            <button type="button" class="btn btn-secondary" onclick="easyModeButton()" id="noobBtn">Noob Mode</button>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="easyModeButton()" id="noobBtn">Noob Mode</button>
         </p>
     </div>
 </div>
 
 <div class="container row">
-    <div id="story" class="container rounded col-lg-12 col-md-12"><b><u>THE STORY</u></b>
-        <p>You and your best friend went on an expensive trip to Golden Saucer Island, which is currently the most popular and exciting tourist destination.
-        While walking along a huge pyramid-like structure made of diamonds, you and your friend decided to stop for a short break.</p>
-        <p>Unfortunately, you were so distracted by the sights that a thief had stolen all your belongings! There was no trace of him whatsoever.
-        It was like nothing ever happened, except that all your belongings are gone. All you know is that you have 500 credits left in your pocket.</p>
-        <p>Your only hope is to play at the Golden Saucer Casino and win back a large amount of money to get home safely! Your friend's only hope is you. Good luck!</p>
-        <p><b>TO WIN: </b>Earn 100,000 Credits from the Casino to buy your way back!</p>
-        <b>Click "Start Game" to start!</b><br>
-        <b>Click "How to Play" for the rules!</b>
+
+    <div class="container col-lg-6 col-md-6">
+
+        <div id="story" class="container rounded col-lg-12 col-md-12 border border-warning"><b><u>THE STORY</u></b>
+            <p>You and your best friend went on an expensive trip to Golden Saucer Island, which is currently the most popular and exciting tourist destination.
+            While walking along a huge pyramid-like structure made of diamonds, you and your friend decided to stop for a short break.</p>
+            <p>Unfortunately, you were so distracted by the sights that a thief had stolen all your belongings! There was no trace of him whatsoever.
+            It was like nothing ever happened, except that all your belongings are gone. All you know is that you have 500 credits left in your pocket.</p>
+            <p>Your only hope is to play at the Golden Saucer Casino and win back a large amount of money to get home safely! Your friend's only hope is you. Good luck!</p>
+            <p><b>TO WIN: </b>Earn 100,000 Credits from the Casino to buy your way back!</p>
+            <b>Click "Start Game" to start!</b><br>
+            <b>Click "How to Play" for the rules!</b>
+        </div>
+
+        <div id="health" class="rounded border border-warning">
+            <img src="assets/images/health.jpg" alt="" style="width:20px;height:20px"><u>HEALTH (max 10)</u><br>
+            Player: <b id="playerHealth"></b><br>
+            Friend: <b id="friendHealth"></b>
+        </div>
+
+        <div id="casino" class="rounded border border-warning">
+            <p id="showNumber"></p>
+            <p>Credits: <b id="userCredits"></b></p>
+
+            <input class="form-control" type="number" id="bet" placeholder="Enter bet amount.."><br>
+            <button class="btn btn-warning" onclick="betHigh()">Bet HIGH!</button>
+            <button class="btn btn-warning" onclick="betLow()">Bet LOW!</button>
+
+            <p id="randomNumber"></p>
+
+            <p id="usedNumbers"></p>
+        </div>
+        
     </div>
 
-    <div id="easyMode" class="container rounded col-lg-6 col-md-6">
-        <b><u>NOOB MODE</u></b>
-        <p id="easyProb"></p>
+    <div class="container col-lg-6 col-md-6">
+        <div id="foodOptions" class="rounded border border-warning">
+            <u>OVERPRICED FOOD MENU</u><br><br>
+            <b id="food1"></b><br>
+            <button class="btn btn-secondary" onclick="buyFood1Player()">Buy for yourself!</button><br>
+            <button class="btn btn-secondary" onclick="buyFood1Friend()">Buy for friend!</button><br><br>
+            <b id="food2"></b><br>
+            <button class="btn btn-secondary" onclick="buyFood2Player()">Buy for yourself!</button><br>
+            <button class="btn btn-secondary" onclick="buyFood2Friend()">Buy for friend!</button><br><br>
+            <b id="food3"></b><br>
+            <button class="btn btn-secondary" onclick="buyFood3Player()">Buy for yourself!</button><br>
+            <button class="btn btn-secondary" onclick="buyFood3Friend()">Buy for friend!</button><br><br>
+        </div>
+        
+        <div id="easyMode" class="container rounded col-lg-12 col-md-12">
+            <b><u>NOOB MODE</u></b>
+            <p id="easyProb"></p>
+        </div>
     </div>
 
-    <div id="casino" class="container">
-        <p id="showNumber"></p>
-        <p>Credits: <b id="userCredits"></b></p>
-
-        <input type="number" id="bet" placeholder="Enter bet amount.."><br>
-        <button onclick="betHigh()">Bet HIGH!</button>
-        <button onclick="betLow()">Bet LOW!</button>
-
-        <p id="randomNumber"></p>
-
-        <p id="usedNumbers"></p>
-    </div>
-
-    <div id="health" class="container">
-        <img src="assets/images/health.jpg" alt="" style="width:20px;height:20px"><u>HEALTH (max 10)</u><br>
-        Player: <b id="playerHealth"></b><br>
-        Friend: <b id="friendHealth"></b>
-    </div>
-
-    <div id="foodOptions" class="container">
-        <u>OVERPRICED FOOD MENU</u><br><br>
-        <b id="food1"></b><br>
-        <button onclick="buyFood1Player()">Buy for yourself!</button><br>
-        <button onclick="buyFood1Friend()">Buy for friend!</button><br><br>
-        <b id="food2"></b><br>
-        <button onclick="buyFood2Player()">Buy for yourself!</button><br>
-        <button onclick="buyFood2Friend()">Buy for friend!</button><br><br>
-        <b id="food3"></b><br>
-        <button onclick="buyFood3Player()">Buy for yourself!</button><br>
-        <button onclick="buyFood3Friend()">Buy for friend!</button><br><br>
-    </div>
 </div>
 
 <div id="bonus" class="container">
