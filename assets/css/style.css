@@ -29,7 +29,7 @@ div#bonus{
     padding: 25px;
 }
 .footer {
-    background-color: lightgray;
+    background-color:black;
     text-align: center;
     padding: 8px;
 }
@@ -65,4 +65,9 @@ body {
 
 .modal {
     color: #313131;
- }
+}
+
+.menu-item {
+    width: 100px;
+    height: auto;
+}

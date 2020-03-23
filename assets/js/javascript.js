@@ -219,10 +219,16 @@ function highRollers() {
                 foodItem1 = "Escargot - 2000 credits (+2 HP)";
                 foodItem2 = "Steak - 4000 credits (+5 HP)";
                 foodItem3 = "Sushi Plate - 6000 credits (+8 HP)";
+                foodimg1 = "./assets/images/menu-escargot.png";
+                foodimg2 = "./assets/images/menu-steak.png";
+                foodimg3 = "./assets/images/menu-sushi.png";
                 document.getElementById("highroller").innerHTML = "<img src=\"assets/images/highroller.jpg\" style=\"width:300px;height=300px\">";
                 document.getElementById("food1").innerHTML = foodItem1;
                 document.getElementById("food2").innerHTML = foodItem2;
                 document.getElementById("food3").innerHTML = foodItem3;
+                document.getElementById("foodimg1").src = foodimg1;
+                document.getElementById("foodimg2").src = foodimg2;
+                document.getElementById("foodimg3").src = foodimg3;
                 document.getElementsByTagName("body")[0].setAttribute("style","background-image: url('https://raw.githubusercontent.com/victafrancis/high-low-strategy-game/master/assets/images/background.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%;");
                 reshuffleDeck();
             }

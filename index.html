@@ -41,7 +41,7 @@
         </div>
 
         <div id="health" class="rounded border border-warning">
-            <img src="assets/images/health.jpg" alt="" style="width:20px;height:20px"><u>HEALTH (max 10)</u><br>
+            <h5><img class="" src="assets/images/health.jpg" alt="" style="width:20px;height:20px"> HEALTH (max: 10)</h5>
             Player: <b id="playerHealth"></b><br>
             Friend: <b id="friendHealth"></b>
         </div>
@@ -63,16 +63,25 @@
 
     <div class="container col-lg-6 col-md-6">
         <div id="foodOptions" class="rounded border border-warning">
-            <u>OVERPRICED FOOD MENU</u><br><br>
-            <b id="food1"></b><br>
-            <button class="btn btn-secondary" onclick="buyFood1Player()">Buy for yourself!</button><br>
-            <button class="btn btn-secondary" onclick="buyFood1Friend()">Buy for friend!</button><br><br>
-            <b id="food2"></b><br>
-            <button class="btn btn-secondary" onclick="buyFood2Player()">Buy for yourself!</button><br>
-            <button class="btn btn-secondary" onclick="buyFood2Friend()">Buy for friend!</button><br><br>
-            <b id="food3"></b><br>
-            <button class="btn btn-secondary" onclick="buyFood3Player()">Buy for yourself!</button><br>
-            <button class="btn btn-secondary" onclick="buyFood3Friend()">Buy for friend!</button><br><br>
+            <h5>OVERPRICED FOOD MENU</h5><br>
+            <p>
+                <img id="foodimg1" class="img-fluid rounded float-left menu-item" src="./assets/images/menu-takoyaki.png">
+                <b id="food1"></b><br>
+                <button class="btn btn-secondary" onclick="buyFood1Player()">Buy for yourself!</button><br>
+                <button class="btn btn-secondary" onclick="buyFood1Friend()">Buy for friend!</button><br><br>
+            </p>
+            <p>
+                <img id="foodimg2" class="img-fluid rounded float-left menu-item" src="./assets/images/menu-cheeseburger.png">
+                <b id="food2"></b><br>
+                <button class="btn btn-secondary" onclick="buyFood2Player()">Buy for yourself!</button><br>
+                <button class="btn btn-secondary" onclick="buyFood2Friend()">Buy for friend!</button><br><br>
+            </p>
+            <p>
+                <img id="foodimg3" class="img-fluid rounded float-left menu-item" src="./assets/images/menu-tempura.png">
+                <b id="food3"></b><br>
+                <button class="btn btn-secondary" onclick="buyFood3Player()">Buy for yourself!</button><br>
+                <button class="btn btn-secondary" onclick="buyFood3Friend()">Buy for friend!</button><br><br>
+            </p>
         </div>
         
         <div id="easyMode" class="container rounded col-lg-12 col-md-12">
